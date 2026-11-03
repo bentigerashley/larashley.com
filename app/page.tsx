@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main>
+    <main className="home-page">
       <section className="hero" aria-labelledby="home-title">
         <h1 className="sr-only" id="home-title">Lara Ashley Ceramics</h1>
         <Image
