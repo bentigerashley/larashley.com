@@ -1,11 +1,11 @@
 import { GalleryGrid } from "@/components/gallery-grid";
 import { galleries, type GalleryCategory } from "@/lib/gallery";
 import { listGalleryImages } from "@/lib/cloudinary";
-import { starterGalleryImages } from "@/lib/starter-gallery";
+import { publicGalleryImages } from "@/lib/public-gallery";
 
 export async function GalleryPage({ category }: { category: GalleryCategory }) {
   const gallery = galleries[category];
-  const images = [...starterGalleryImages[category], ...(await listGalleryImages(category))];
+  const images = await publicGalleryImages(category, listGalleryImages);
 
   return (
     <main className="gallery-page">
