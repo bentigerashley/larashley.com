@@ -58,14 +58,12 @@ h3 { font-size: 1.3rem; }
 .site-header nav a:hover { text-decoration: underline; text-underline-offset: 0.35rem; }
 
 main { min-height: 65vh; }
-.home-page { padding-top: clamp(1rem, 3vw, 2.5rem); }
-.hero { width: min(960px, calc(100% - 3rem)); aspect-ratio: 16 / 9; margin: 0 auto; overflow: hidden; }
-.hero-image { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 28%; }
+.hero { width: 100%; height: clamp(240px, 42vw, 520px); overflow: hidden; }
+.hero-image { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 38%; }
 
-.collection-links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1.5rem, 3vw, 2.5rem); width: min(960px, calc(100% - 3rem)); margin: 0 auto; padding: clamp(3rem, 7vw, 6rem) 0; }
-.collection-links a { position: relative; display: flex; min-height: clamp(160px, 19vw, 240px); align-items: flex-end; padding: clamp(1.25rem, 3vw, 2rem); overflow: hidden; border: 1px solid rgba(50, 27, 11, .1); border-radius: 1.5rem; background: rgba(255, 253, 249, .82); box-shadow: 0 1px 2px rgba(50, 27, 11, .04), 0 14px 38px rgba(50, 27, 11, .08); font-family: Georgia, "Times New Roman", serif; font-size: clamp(1.65rem, 3vw, 2.8rem); letter-spacing: -.035em; line-height: 1; text-decoration: none; transition: transform .25s ease, box-shadow .25s ease, background-color .25s ease; }
-.collection-links a::after { position: absolute; top: clamp(1.25rem, 3vw, 2rem); right: clamp(1.25rem, 3vw, 2rem); display: grid; width: 2.75rem; height: 2.75rem; place-items: center; border: 1px solid rgba(50, 27, 11, .18); border-radius: 50%; content: "→"; font-family: Arial, Helvetica, sans-serif; font-size: 1rem; letter-spacing: 0; }
-.collection-links a:hover { background: var(--paper); box-shadow: 0 2px 4px rgba(50, 27, 11, .05), 0 24px 64px rgba(50, 27, 11, .14); transform: translateY(-4px); }
+.collection-links { display: flex; flex-wrap: wrap; justify-content: center; gap: .75rem; padding: clamp(1.5rem, 4vw, 2.5rem) 1rem; }
+.collection-links a { display: inline-flex; min-height: 42px; align-items: center; justify-content: center; padding: .65rem 1.25rem; border: 1px solid rgba(50, 27, 11, .2); border-radius: 999px; background: rgba(255, 253, 249, .82); font-size: .78rem; font-weight: 700; letter-spacing: .08em; line-height: 1; text-decoration: none; text-transform: uppercase; transition: background-color .2s ease, border-color .2s ease, transform .2s ease; }
+.collection-links a:hover { border-color: rgba(50, 27, 11, .4); background: var(--paper); transform: translateY(-1px); }
 
 .maker-intro { width: min(600px, calc(100% - 3rem)); margin: clamp(4rem, 9vw, 7rem) auto; }
 .maker-intro p { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp(1.25rem, 2.5vw, 1.8rem); line-height: 1.5; }
@@ -128,9 +126,6 @@ main { min-height: 65vh; }
   .site-header .brand { display: none; }
   .site-header nav { width: 100%; flex-wrap: nowrap; justify-content: space-between; gap: .5rem; }
   .site-header nav a { font-size: .68rem; }
-  .collection-links { grid-template-columns: 1fr; }
-  .collection-links a { min-height: 150px; border-radius: 1.25rem; }
-  .hero, .collection-links { width: calc(100% - 2rem); }
   .maker-intro, .admin-page, .site-footer { width: calc(100% - 2rem); }
   .upload-section, .admin-grid { grid-template-columns: 1fr; }
   .admin-heading { flex-direction: column; }
