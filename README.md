@@ -11,6 +11,8 @@ A small Next.js portfolio with two public galleries and a two-person Google-auth
 
 Only `lara.ashley@gmail.com` and `bentiger.ashley@gmail.com` are accepted. Uploads require alt text and go directly from the browser to signed Cloudinary folders. Deletion is server-authorized and restricted to `larashley/functional/*` and `larashley/art/*`.
 
+Cloudinary is the gallery database: it stores each uploaded image, gallery folder and alt-text metadata, so a separate SQL or MongoDB database is not required. The supplied starter works are bundled with the site; future admin uploads appear alongside them in the selected gallery.
+
 ## Google OAuth
 
 Create a Google OAuth web client and add these authorized redirect URIs:

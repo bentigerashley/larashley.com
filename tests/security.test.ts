@@ -1,6 +1,18 @@
 import { describe, expect, it } from "vitest";
 
-import { isAllowedAdminEmail, isAllowedGoogleProfile } from "../lib/security";
+import {
+  isAdminPreviewEnabled,
+  isAllowedAdminEmail,
+  isAllowedGoogleProfile,
+} from "../lib/security";
+
+describe("admin preview", () => {
+  it("can only be enabled outside production", () => {
+    expect(isAdminPreviewEnabled("true", "development")).toBe(true);
+    expect(isAdminPreviewEnabled("true", "production")).toBe(false);
+    expect(isAdminPreviewEnabled("false", "development")).toBe(false);
+  });
+});
 
 describe("admin authorization", () => {
   it.each(["lara.ashley@gmail.com", "bentiger.ashley@gmail.com", "LARA.ASHLEY@GMAIL.COM"])(

@@ -1,31 +1,42 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import Link from "next/link";
 
-export const metadata: Metadata = { title: "About" };
+export const metadata: Metadata = {
+  title: "About",
+  description: "Meet Lara Ashley, a ceramic artist working with wheel-thrown forms in Mahurangi, Aotearoa New Zealand.",
+};
 
 export default function AboutPage() {
   return (
-    <main className="story-page">
-      <section className="story-copy">
-        <h1>Lara Ashley</h1>
-        <p className="lead">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-          ut labore et dolore magna aliqua.
-        </p>
-        <p>
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-          commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-          dolore eu fugiat nulla pariatur.
-        </p>
-      </section>
-      <Image
-        alt="Lara Ashley standing behind her ceramic work at a market"
-        height={2339}
-        priority
-        sizes="(max-width: 850px) calc(100vw - 48px), 48vw"
-        src="/images/mumatmarket.jpg"
-        width={1734}
-      />
+    <main className="about-page">
+      <p className="eyebrow">About</p>
+      <h1>Lara Ashley</h1>
+      <p>
+        Lara Ashley is a ceramic artist working in Mahurangi, Aotearoa New Zealand.
+        She makes wheel-thrown vessels, exploring how pressure and small changes
+        to a form can shift its structure.
+      </p>
+      <p>
+        Starting with simple shapes, Lara pushes and distorts the clay, sometimes
+        opening or breaking the surface. The resulting pieces show how the
+        material stretches and responds to touch, balancing a sense of stability
+        with the possibility of giving way.
+      </p>
+      <p>
+        Experiments with raku and salt firing help her understand the material
+        and develop new work. Her practice considers the relationship between
+        deliberate decisions and the unexpected results of making with clay.
+      </p>
+      <p className="about-source">
+        Read Lara’s artist profile on the{" "}
+        <a href="https://www.mahurangiartistnetwork.com/mahurangiartists/lara-ashley">
+          Mahurangi Artist Network
+        </a>.
+      </p>
+      <nav className="collection-links" aria-label="More about Lara’s work">
+        <Link href="/ceramics">Explore the ceramics</Link>
+        <Link href="/contact">Get in touch</Link>
+      </nav>
     </main>
   );
 }
