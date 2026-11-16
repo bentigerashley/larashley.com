@@ -11,6 +11,7 @@ export function SiteHeader() {
       <nav aria-label="Primary navigation">
         <Link href="/functional-ware">Functional ware</Link>
         <Link href="/art-pieces">Art pieces</Link>
+        <Link href="/about">About</Link>
         <Link href="/contact">Contact</Link>
       </nav>
     </header>

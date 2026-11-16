@@ -4,14 +4,16 @@ import { AdminGallery } from "@/components/admin-gallery";
 import { SignOutButton, UploadForm } from "@/components/admin-controls";
 import { getAdminSession } from "@/lib/auth";
 import { cloudinaryConfigured, listGalleryImages } from "@/lib/cloudinary";
+import { isAdminPreviewEnabled } from "@/lib/security";
 
 export const metadata: Metadata = { title: "Gallery Admin", robots: { index: false, follow: false } };
 export const dynamic = "force-dynamic";
 
 export default async function AdminPage() {
-  const session = await getAdminSession();
+  const previewMode = isAdminPreviewEnabled();
+  const session = previewMode ? null : await getAdminSession();
 
-  if (!session) {
+  if (!previewMode && !session) {
     return (
       <main className="admin-login">
         <p className="eyebrow">Lara Ashley Ceramics</p>
@@ -34,9 +36,9 @@ export default async function AdminPage() {
         <div>
           <p className="eyebrow">Gallery admin</p>
           <h1>Manage the work</h1>
-          <p>Signed in as {session.user?.email}</p>
+          <p>{previewMode ? "Layout preview — OAuth disabled" : `Signed in as ${session?.user?.email}`}</p>
         </div>
-        <SignOutButton />
+        {!previewMode && <SignOutButton />}
       </header>
 
       {!cloudinaryConfigured && (
